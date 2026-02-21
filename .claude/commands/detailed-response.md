@@ -69,6 +69,30 @@ description: "为审稿回复信生成逐条详细回复（含分析、LaTeX回�
 
 ## 步骤 2：生成 LaTeX 回复文本（→ Part 2 of 输出）
 
+### 科技写作规范（铁律 — 适用于所有生成文本）
+
+**每一句**回复文本必须通过以下检查：
+1. **一句一意** — 拆分 "We revised X, which also addresses Y" 为两句
+2. **主动语态** — "We added a paragraph" 而非 "A paragraph was added"
+3. **短句** — 目标 15-20 词，超过 25 词必须拆分
+4. **克制修饰** — 删除 "significantly"、"comprehensively" 等不传递新信息的副词；形容词同理
+5. **逻辑连接** — 句间用 "First,...Second,..." 或因果连接词，不堆叠 "Moreover,...Furthermore,...Additionally,..."
+
+❌ BAD:
+```
+We have comprehensively revised the definition section to thoroughly
+address the reviewer's concern regarding the lack of conceptual
+clarity, which was indeed a significant limitation.
+```
+
+✅ GOOD:
+```
+We revised the definition section. We now distinguish three concepts:
+X, Y, and Z. Each has an operational definition (Lines 101--115).
+```
+
+> 感谢语句允许一个描述性形容词（如 "constructive suggestion"），紧随其后的正文严格执行。
+
 ### 回复结构（严格遵循）
 
 ```latex
@@ -105,15 +129,17 @@ description: "为审稿回复信生成逐条详细回复（含分析、LaTeX回�
 
 ### 感谢/开头措辞（每个 Comment 不同）
 
-从以下变体中选取或改编，**禁止**与同一会话中已生成的其他回复重复：
-- "We thank the reviewer for raising this important point regarding [具体话题]."
-- "This is an excellent observation. We appreciate the reviewer's attention to [具体方面]."
-- "We are grateful for this insightful comment, which has helped us [improve/clarify/strengthen] [具体内容]."
-- "The reviewer raises a valid concern about [具体问题]. We have addressed this as follows."
-- "We acknowledge this constructive suggestion and have made the following revisions."
-- "We sincerely appreciate the reviewer's careful examination of [具体方面]."
-- "This thoughtful comment has prompted us to [improve/reconsider/clarify] [具体内容]."
-- "We welcome this constructive feedback on [具体话题] and have responded accordingly."
+从以下变体中选取或改编，**禁止**与同一会话中已生成的其他回复重复。
+每条感谢**限一个**描述性形容词，紧跟具体话题：
+
+- "We thank the reviewer for this comment on [具体话题]."
+- "We appreciate the reviewer's attention to [具体方面]."
+- "This is a constructive observation. We address it as follows."
+- "The reviewer raises a valid concern about [具体问题]. We respond below."
+- "We are grateful for this suggestion on [具体内容]."
+- "Thank you for the careful examination of [具体方面]."
+- "This comment helped us improve [具体内容]. We respond as follows."
+- "We welcome this feedback on [具体话题] and respond below."
 
 ### 逐点回应要求
 - 使用 **"First, ... Second, ... Third, ..."** 结构（而非 "Moreover, Furthermore, Additionally"）
@@ -135,7 +161,7 @@ description: "为审稿回复信生成逐条详细回复（含分析、LaTeX回�
   - 根据该审稿人的**具体提问角度**重新组织论证（不是复制粘贴锚点回复）
   - 可引用相同的 `\manuscriptquote{}` 和 `\lineref{}`（指向同一份修改稿）
   - 比锚点回复更精简，但核心论证完整
-  - 可选用软性措辞："This concern was also noted by other reviewers, and we have addressed it comprehensively in the revised manuscript."——但实质内容不能依赖此句
+  - 可选用软性措辞："This concern was also noted by other reviewers, and we have addressed it in the revised manuscript."——但实质内容不能依赖此句
 
 ### 情境意识（关键！）
 在撰写回复时，始终牢记：
@@ -173,6 +199,9 @@ description: "为审稿回复信生成逐条详细回复（含分析、LaTeX回�
 - 如果修改与其他 Cluster 重叠（如 C2 记号审计影响多处），注明 "This modification also addresses Comment #X-Y (Cluster CX)"
 - 如果不需要修改原稿（纯解释类回复），明确声明 "No manuscript modifications are required for this comment."
 - `manuscript.tex` 的行号以当前版本为准
+
+### manuscript.tex 修改文本规范
+Part 3 建议的修改文本同样遵循科技写作四条规范。方法描述中的被动语态（如 "samples were collected"）属学科惯例，可保留。
 - 如果涉及新增引用，在修改建议中列出需要添加到项目 `.bib` 文件的 BibTeX 条目
 - 如果涉及 MATLAB/图表修改（用户负责的部分），标注 "**需要用户操作**"
 
@@ -241,8 +270,10 @@ description: "为审稿回复信生成逐条详细回复（含分析、LaTeX回�
 - [ ] 回复直接回应了审稿人的核心关切，没有答非所问
 - [ ] 如果涉及原稿修改，Part 2 和 Part 3 的内容一致
 - [ ] 行号引用准确（或已标注为 [TBD]）
-- [ ] 没有过度承诺（用 "thoroughly addressed" 而非 "completely resolved"）
+- [ ] 没有过度承诺（用 "We addressed this concern" 而非 "We have completely resolved this issue"）
 - [ ] 保持与同 Cluster 其他回复的一致性
 - [ ] 回复体现了对目标期刊读者群的关注（从 CLAUDE.md 或 revision-guide.md 中确认期刊名称和读者群特征）
 - [ ] 回复中使用了论文的核心术语（从 revision-guide.md 或 manuscript.tex 摘要中提取关键术语）
+- [ ] **科技写作规范**：每句不超 25 词、主动语态、无不必要修饰词、句间逻辑连接清晰
+- [ ] **感谢语句**：开头最多一个描述性形容词，无堆叠修饰
 - [ ] **交叉引用合规**：如果是跨审稿人的同 Cluster 回复，确认文中无任何形式的 "see our response to Comment #X-Y"、"as discussed in Comment #X-Y" 等对其他 Reviewer Comment 的引用。仅允许软性措辞（"This concern was also noted by other reviewers"）且实质内容完全自含

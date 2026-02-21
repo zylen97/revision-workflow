@@ -137,7 +137,7 @@ Phase C: 终审与提交（本指南 Chapter 8）
 
 **时间预估**：Phase A 约 2-4 小时（取决于意见数量），Phase B 每个 Cluster 约 1-3 小时。
 
-### 三条核心理念
+### 四条核心理念
 
 **1. Cluster 组织**：不同审稿人经常提出重叠的关切。将相关意见归类为主题集群（Cluster），统一修改、分别回复。每个 Cluster 有一个锚点回复（Anchor）和若干卫星回复（Satellite）。
 
@@ -150,6 +150,17 @@ Phase C: 终审与提交（本指南 Chapter 8）
 | `cluster-progress.md` | Cluster 完成度 | 哪些 Cluster 已完成/进行中/待处理 |
 | `response-progress.md` | 逐条回复状态 | 意见 → 回复 → 稿件修改映射 |
 | `manuscript-changelog.md` | 累积稿件修改 | 改了什么、在哪里、为什么 |
+
+**4. 科技写作纪律**：所有生成的英文文本——response letter 和 manuscript 修改——遵循四条规则：
+
+| 规则 | 要求 | ❌ → ✅ |
+|------|------|---------|
+| 简单句 | 一句一个主要意思，避免从句嵌套 | "We revised the model, which was originally..." → "We revised the model. The original version..." |
+| 主动语态 | 主语做动作 | "The definition was clarified" → "We clarified the definition" |
+| 短句 | 目标 15-20 词，上限 25 词 | "In order to address the concern regarding the lack of clarity in the section, we made revisions." → "We revised the section to improve clarity." |
+| 克制修饰 | 形容词/副词仅在传递新信息时用 | "We greatly appreciate this highly insightful comment" → "We appreciate this comment on [topic]" |
+
+> **例外**：感谢语句允许一个描述性形容词（如 "constructive feedback"），正文论证部分严格执行。
 
 ### 前置条件
 
@@ -297,6 +308,13 @@ latexmk -pvc- -pv- supplemental-materials.tex  # 编译补充材料（一次性�
 - `(Author et al., Year)` 替代 `\citep{}`
 - `Author et al. (Year)` 替代 `\citet{}`
 - 两位作者写全名，三位及以上用 et al.
+
+### 科技写作规范（铁律）
+所有 response letter 和 manuscript 修改文本：
+1. **简单主动句式** — 一句一意，"We revised X" 而非 "X was revised"
+2. **逻辑清晰** — 句间因果/递进关系明确，用 "First,...Second,..." 而非 "Moreover,...Furthermore,..."
+3. **短句** — 目标 15-20 词/句，上限 25 词
+4. **克制修饰** — 删除不传递新信息的形容词/副词；感谢语句允许一个描述性形容词
 ```
 
 ---
@@ -548,7 +566,7 @@ Cluster 之间可能存在执行依赖：
 ### 5.11 完成 revision-guide.md（Section 6-9）
 
 填写剩余 Section：
-- **Section 6: Response Letter 风格指南**——参照 CLAUDE.md 和模板中的格式规则
+- **Section 6: Response Letter 风格指南**——参照 CLAUDE.md 中的格式规则和科技写作四条规范（简单主动句、逻辑清晰、短句、克制修饰）
 - **Section 7: 交付物**——列出最终要提交的文件
 - **Section 8: 分工**——明确 Claude 和用户各自负责的任务
 - **Section 9: 期刊特定要求**——从期刊官网获取格式、字数、图片等要求

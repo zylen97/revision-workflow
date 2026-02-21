@@ -48,22 +48,28 @@ description: "为审稿回复信生成概括性回复（Editor/AE/Reviewer的总
 - 不使用 `\manuscriptquote{}` 或 `\lineref{}`（概括性回复不需要引用原文）
 - 总长度：3-6句话（约80-150 words）
 
+### 科技写作规范（铁律）
+1. **一句一意**，主动语态，目标 15-20 词/句
+2. 删除不传递新信息的副词/形容词（"significantly"、"comprehensively" 等）
+3. 感谢语句允许一个描述性形容词，正文部分严格执行
+
 ### 感谢措辞库（每次选取或改编，不得重复）
-参考以下变体，也可以创造新的：
-- "We sincerely thank [the Editor/the Associate Editor/Reviewer #X] for [the constructive feedback / the thorough evaluation / the insightful comments and valuable suggestions]."
-- "We greatly appreciate [the time and effort / the careful review / the thoughtful assessment] by [the Editor/...]."
-- "We are grateful for [the detailed and constructive feedback / the expert guidance / the professional evaluation] provided by [...]."
-- "[The Editor's/The reviewer's] comments have been instrumental in improving [the clarity / the rigor / the quality] of our manuscript."
-- "The [insightful / constructive / thorough] feedback from [the Editor/...] has significantly contributed to strengthening our work."
-- "Many thanks for [considering our manuscript / the valuable time dedicated to reviewing our work]."
+参考以下变体，也可以创造新的（每条限一个描述性形容词）：
+- "We thank [the Editor/the Associate Editor/Reviewer #X] for [the constructive feedback / the thorough evaluation / the comments and suggestions]."
+- "We appreciate [the time and effort / the careful review] by [the Editor/...]."
+- "We are grateful for [the detailed feedback / the professional evaluation] provided by [...]."
+- "[The Editor's/The reviewer's] comments helped us improve [the clarity / the rigor] of our manuscript."
+- "The [constructive / thorough] feedback from [the Editor/...] strengthened our work."
+- "Thank you for [considering our manuscript / the time dedicated to reviewing our work]."
 
 ### 关键写作原则
-1. **避免空洞套话**：不要写"We have carefully revised the manuscript"就完事。要具体到改进了什么方向（如"We have enhanced the transparency of our modeling assumptions and strengthened the notation consistency throughout the manuscript"）
-2. **感知评审人的态度**：如果审稿人语气积极（如 "well-structured and theoretically grounded"），回复中要呼应认可；如果审稿人严厉或直接列出问题，回复中要展示对问题的深刻理解
-3. **不要过度承诺**：不需要说 "all issues have been fully resolved"，用 "we have thoroughly addressed..." 即可
-4. **保持与研究主题的关联**：提到具体改进方向时，使用论文的核心术语（从 `revision/revision-guide.md` 或 `manuscript.tex` 摘要中提取），不要说太泛泛的话
-5. **意识到投稿期刊**：从 CLAUDE.md 或 `revision/revision-guide.md` 中确认投稿期刊名称和读者群特征，回复中体现对该期刊读者群的关注
-6. **引用格式**：response-letter.tex **不使用 natbib 或任何引用包**，所有引用均为纯文本。`(Author et al., Year)` 替代 `\citep{}`；`Author et al. (Year)` 替代 `\citet{}`。两位作者写全，三位及以上用 et al.。从项目的 `.bib` 文件中查找作者信息
+1. **科技写作纪律**：每句简短（不超 25 词）、主动语态、一句一意。删除不传递新信息的副词/形容词。此规则优先级最高。
+2. **避免空洞套话**：不要写"We have carefully revised the manuscript"就完事。要具体到改进了什么方向（如"We clarified the modeling assumptions and unified the notation throughout the manuscript"）
+3. **感知评审人的态度**：如果审稿人语气积极（如 "well-structured and theoretically grounded"），回复中要呼应认可；如果审稿人严厉或直接列出问题，回复中要展示对问题的深刻理解
+4. **不要过度承诺**：不需要说 "all issues have been fully resolved"，用 "we have addressed..." 即可
+5. **保持与研究主题的关联**：提到具体改进方向时，使用论文的核心术语（从 `revision/revision-guide.md` 或 `manuscript.tex` 摘要中提取），不要说太泛泛的话
+6. **意识到投稿期刊**：从 CLAUDE.md 或 `revision/revision-guide.md` 中确认投稿期刊名称和读者群特征，回复中体现对该期刊读者群的关注
+7. **引用格式**：response-letter.tex **不使用 natbib 或任何引用包**，所有引用均为纯文本。`(Author et al., Year)` 替代 `\citep{}`；`Author et al. (Year)` 替代 `\citet{}`。两位作者写全，三位及以上用 et al.。从项目的 `.bib` 文件中查找作者信息
 
 ## 步骤 4：生成输出
 

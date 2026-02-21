@@ -129,7 +129,7 @@ After fix applied:
 
 ### Common Feedback Patterns
 
-- **"Too verbose"** → Identify core argument (1-2 sentences), rebuild around it. Cut restatement, filler phrases, unnecessary transitions.
+- **"Too verbose"** → Identify core argument (1-2 sentences), rebuild around it. Cut restatement, filler phrases, unnecessary transitions. Apply writing rules: split long sentences, switch to active voice, cut stacked modifiers.
 
 - **"Wrong focus"** → Re-read original comment. What is reviewer really worried about? Lead with that concern.
 

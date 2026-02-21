@@ -44,6 +44,49 @@ CITATIONS (plain text only — no natbib):
 
 ---
 
+## Scientific Writing Style Quick Reference
+
+```
+──────────────────────────────────────────────────────────────
+  SCIENTIFIC WRITING RULES — ALL GENERATED TEXT
+──────────────────────────────────────────────────────────────
+
+  FOUR RULES:
+
+  1. ONE IDEA PER SENTENCE  No nested clauses. Split if needed.
+  2. ACTIVE VOICE           "We revised X" not "X was revised"
+  3. SHORT SENTENCES        Target 15-20 words. Hard cap: 25.
+  4. MINIMAL MODIFIERS      Only adjectives/adverbs that carry
+                            new information. No stacking.
+
+  LOGICAL FLOW:
+    Use "First,...Second,..." not "Moreover,...Furthermore,..."
+    Every sentence connects to the next by logic, not by filler.
+
+  THANKS EXCEPTION:
+    ONE descriptive adjective allowed in opening thanks:
+      OK   "constructive feedback"  "careful examination"
+      BAD  "highly insightful and extremely valuable comment"
+
+  SELF-CHECK PER SENTENCE:
+    [ ] Can I split this?              → Split it.
+    [ ] Is the subject doing the verb? → Rewrite if not.
+    [ ] Over 25 words?                 → Shorten.
+    [ ] Any adverb I can delete?       → Delete it.
+    [ ] Does it connect logically?     → Add transition if not.
+
+  ❌  "We have comprehensively addressed the reviewer's
+      insightful concern regarding the significant lack of
+      conceptual clarity in the definition section."
+
+  ✅  "We revised the definition section. We now define
+      three concepts: X, Y, and Z (Lines 101--115)."
+
+──────────────────────────────────────────────────────────────
+```
+
+---
+
 ## Cluster Analysis Checklist
 
 ```
@@ -149,6 +192,13 @@ CITATIONS (plain text only — no natbib):
   [ ] All \lineref{} line numbers verified against current manuscript
   [ ] Figure/table numbers correct in response letter
   [ ] Bibliography complete (no "?" in compiled PDF)
+
+  WRITING STYLE
+  [ ] Spot-check 5 response paragraphs: no sentence > 25 words
+  [ ] Spot-check for passive voice — rewrite to active
+  [ ] No stacked modifiers in response text
+      (grep for: significantly, comprehensively, thoroughly,
+       extremely, highly, greatly)
 
   FORMATTING
   [ ] Journal formatting requirements met
