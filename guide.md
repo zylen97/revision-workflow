@@ -679,7 +679,7 @@ Cluster 之间可能存在执行依赖：
 从模板出发，完成以下替换：
 
 1. 标题中的 `[MANUSCRIPT-ID]` → 实际稿件编号
-2. 开篇段落的 `[开篇段落: ...]` → 感谢 + 修改概述（可用 `/general-response` 生成）
+2. 开篇段落：将 `[N]` 替换为审稿人数量（two / three）；如无 AE，删除 ", the Associate Editor,"。此段落已预填在模板中，无需生成
 3. 对 Editor → 粘贴 Editor 意见原文
 4. 对 AE → 粘贴 AE 意见原文
 5. 对每位 Reviewer：
@@ -696,7 +696,7 @@ Cluster 之间可能存在执行依赖：
 ```bash
 grep -c "TO BE FILLED" response-letter.tex
 ```
-这个数字应等于 `response-progress.md` 中需要填写的总条目数。
+这个数字应等于 `response-progress.md` 中需要填写的总条目数。开篇段落已预填在模板中，不计入此数。
 
 ### 6.5 初始化完成检查
 
