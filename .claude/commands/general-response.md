@@ -49,9 +49,10 @@ description: "为审稿回复信生成概括性回复（Editor/AE/Reviewer的总
 - 总长度：3-6句话（约80-150 words）
 
 ### 科技写作规范（铁律）
-1. **一句一意**，主动语态，目标 15-20 词/句
-2. 删除不传递新信息的副词/形容词（"significantly"、"comprehensively" 等）
-3. 感谢语句允许一个描述性形容词，正文部分严格执行
+1. **简单主动句式**：一句一意，主动语态，目标 15-20 词/句
+2. **逻辑清晰**：句间用 "First,...Second,..." 而非 "Moreover,...Furthermore,..."
+3. **克制修饰**：删除不传递新信息的副词/形容词；感谢语句允许一个描述性形容词，正文部分严格执行
+4. **中式英语防治 + 压缩冗余**：检查动宾搭配避免直译（"provide reference" → inform, "play a role" → is critical to），删除名词化冗余和空洞修饰语（very/extremely → 删除）。**完整禁忌表见 CLAUDE.md Rule 5-6。**
 
 ### 感谢措辞库（每次选取或改编，不得重复）
 参考以下变体，也可以创造新的（每条限一个描述性形容词）：
@@ -63,7 +64,7 @@ description: "为审稿回复信生成概括性回复（Editor/AE/Reviewer的总
 - "Thank you for [considering our manuscript / the time dedicated to reviewing our work]."
 
 ### 关键写作原则
-1. **科技写作纪律**：每句简短（不超 25 词）、主动语态、一句一意。删除不传递新信息的副词/形容词。此规则优先级最高。
+1. **科技写作纪律**：每句简短（不超 25 词）、主动语态、一句一意。删除不传递新信息的副词/形容词。避免中式英语直译和名词化冗余。此规则优先级最高。
 2. **避免空洞套话**：不要写"We have carefully revised the manuscript"就完事。要具体到改进了什么方向（如"We clarified the modeling assumptions and unified the notation throughout the manuscript"）
 3. **感知评审人的态度**：如果审稿人语气积极（如 "well-structured and theoretically grounded"），回复中要呼应认可；如果审稿人严厉或直接列出问题，回复中要展示对问题的深刻理解
 4. **不要过度承诺**：不需要说 "all issues have been fully resolved"，用 "we have addressed..." 即可

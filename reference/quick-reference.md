@@ -51,17 +51,37 @@ CITATIONS (plain text only — no natbib):
   SCIENTIFIC WRITING RULES — ALL GENERATED TEXT
 ──────────────────────────────────────────────────────────────
 
-  FOUR RULES:
+  SIX RULES:
 
-  1. ONE IDEA PER SENTENCE  No nested clauses. Split if needed.
-  2. ACTIVE VOICE           "We revised X" not "X was revised"
+  1. SIMPLE ACTIVE STYLE    One idea per sentence. Active voice.
+                            "We revised X" not "X was revised"
+  2. LOGICAL FLOW           "First,...Second,..." not
+                            "Moreover,...Furthermore,..."
+                            Every sentence connects by logic,
+                            not by filler.
   3. SHORT SENTENCES        Target 15-20 words. Hard cap: 25.
   4. MINIMAL MODIFIERS      Only adjectives/adverbs that carry
                             new information. No stacking.
 
-  LOGICAL FLOW:
-    Use "First,...Second,..." not "Moreover,...Furthermore,..."
-    Every sentence connects to the next by logic, not by filler.
+  CHINGLISH PREVENTION (Rule 5):
+  5. NO LITERAL TRANSLATION Check every verb-noun & adj-noun pair:
+     "improve the level"     → enhance
+     "provide reference for" → inform, offer insights for
+     "play an important role"→ is critical to, contributes to
+     "promote the development"→ foster, advance, drive
+     "make a discussion"     → discuss (use verb directly)
+     "big influence"         → significant impact
+     "deep research"         → in-depth investigation
+     Chinese sentence patterns → rewrite entirely:
+       "With the development of X..." → "X has transformed Y"
+       "More and more..."            → "An increasing number of"
+
+  COMPRESS REDUNDANCY (Rule 6):
+  6. NOMINALIZATION → VERB   "carry out an investigation" → investigate
+                             "due to the fact that" → because
+                             "it is worth noting that" → (delete)
+     EMPTY MODIFIERS → DELETE very/extremely/basically/novel/important
+     SYNONYM STACKS → PICK ONE "critical and essential" → essential
 
   THANKS EXCEPTION:
     ONE descriptive adjective allowed in opening thanks:
@@ -74,6 +94,9 @@ CITATIONS (plain text only — no natbib):
     [ ] Over 25 words?                 → Shorten.
     [ ] Any adverb I can delete?       → Delete it.
     [ ] Does it connect logically?     → Add transition if not.
+    [ ] Verb-noun literally translated? → Use idiomatic English.
+    [ ] Any nominalization to compress? → Use direct verb.
+    [ ] Chinese sentence pattern?      → Rewrite to SVO.
 
   ❌  "We have comprehensively addressed the reviewer's
       insightful concern regarding the significant lack of
@@ -199,6 +222,9 @@ CITATIONS (plain text only — no natbib):
   [ ] No stacked modifiers in response text
       (grep for: significantly, comprehensively, thoroughly,
        extremely, highly, greatly)
+  [ ] Spot-check for Chinglish collocations
+      (grep for: improve the level, play.*role, provide reference,
+       with the development, more and more, carry out)
 
   FORMATTING
   [ ] Journal formatting requirements met

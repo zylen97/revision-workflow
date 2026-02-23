@@ -72,11 +72,12 @@ description: "为审稿回复信生成逐条详细回复（含分析、LaTeX回�
 ### 科技写作规范（铁律 — 适用于所有生成文本）
 
 **每一句**回复文本必须通过以下检查：
-1. **一句一意** — 拆分 "We revised X, which also addresses Y" 为两句
-2. **主动语态** — "We added a paragraph" 而非 "A paragraph was added"
+1. **简单主动句式** — 拆分 "We revised X, which also addresses Y" 为两句；"We added X" 而非 "X was added"
+2. **逻辑清晰** — 句间用 "First,...Second,..." 或因果连接词，不堆叠 "Moreover,...Furthermore,...Additionally,..."
 3. **短句** — 目标 15-20 词，超过 25 词必须拆分
 4. **克制修饰** — 删除 "significantly"、"comprehensively" 等不传递新信息的副词；形容词同理
-5. **逻辑连接** — 句间用 "First,...Second,..." 或因果连接词，不堆叠 "Moreover,...Furthermore,...Additionally,..."
+5. **中式英语防治** — 检查每句的动宾搭配是否为直译（"improve the level" → enhance, "provide reference" → inform, "play an important role" → is critical to）；中式句型整句重写（"With the development of..." → 具体因果句）。**完整搭配禁忌表见 CLAUDE.md Rule 5。**
+6. **压缩冗余** — 删除名词化冗余（"carry out an investigation" → investigate）和空洞修饰语（very/extremely/basically/novel/important → 删除或量化）。**完整黑名单见 CLAUDE.md Rule 6。**
 
 ❌ BAD:
 ```
@@ -201,7 +202,7 @@ X, Y, and Z. Each has an operational definition (Lines 101--115).
 - `manuscript.tex` 的行号以当前版本为准
 
 ### manuscript.tex 修改文本规范
-Part 3 建议的修改文本同样遵循科技写作四条规范。方法描述中的被动语态（如 "samples were collected"）属学科惯例，可保留。
+Part 3 建议的修改文本同样遵循科技写作六条规范（见本文件"科技写作规范"一节）。方法描述中的被动语态（如 "samples were collected"）属学科惯例，可保留。
 - 如果涉及新增引用，在修改建议中列出需要添加到项目 `.bib` 文件的 BibTeX 条目
 - 如果涉及 MATLAB/图表修改（用户负责的部分），标注 "**需要用户操作**"
 
@@ -274,6 +275,6 @@ Part 3 建议的修改文本同样遵循科技写作四条规范。方法描述�
 - [ ] 保持与同 Cluster 其他回复的一致性
 - [ ] 回复体现了对目标期刊读者群的关注（从 CLAUDE.md 或 revision-guide.md 中确认期刊名称和读者群特征）
 - [ ] 回复中使用了论文的核心术语（从 revision-guide.md 或 manuscript.tex 摘要中提取关键术语）
-- [ ] **科技写作规范**：每句不超 25 词、主动语态、无不必要修饰词、句间逻辑连接清晰
+- [ ] **科技写作规范**：每句不超 25 词、主动语态、无不必要修饰词、句间逻辑连接清晰、动宾搭配无直译、无名词化冗余和空洞修饰语
 - [ ] **感谢语句**：开头最多一个描述性形容词，无堆叠修饰
 - [ ] **交叉引用合规**：如果是跨审稿人的同 Cluster 回复，确认文中无任何形式的 "see our response to Comment #X-Y"、"as discussed in Comment #X-Y" 等对其他 Reviewer Comment 的引用。仅允许软性措辞（"This concern was also noted by other reviewers"）且实质内容完全自含

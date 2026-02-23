@@ -151,16 +151,19 @@ Phase C: 终审与提交（本指南 Chapter 8）
 | `response-progress.md` | 逐条回复状态 | 意见 → 回复 → 稿件修改映射 |
 | `manuscript-changelog.md` | 累积稿件修改 | 改了什么、在哪里、为什么 |
 
-**4. 科技写作纪律**：所有生成的英文文本——response letter 和 manuscript 修改——遵循四条规则：
+**4. 科技写作纪律**：所有生成的英文文本——response letter 和 manuscript 修改——遵循六条规则：
 
 | 规则 | 要求 | ❌ → ✅ |
 |------|------|---------|
-| 简单句 | 一句一个主要意思，避免从句嵌套 | "We revised the model, which was originally..." → "We revised the model. The original version..." |
-| 主动语态 | 主语做动作 | "The definition was clarified" → "We clarified the definition" |
+| 简单主动句式 | 一句一个主要意思，主语做动作 | "The definition was clarified by revising..." → "We clarified the definition." |
+| 逻辑清晰 | 句间因果/递进关系明确 | "Moreover,...Furthermore,...Additionally,..." → "First,...Second,...Third,..." |
 | 短句 | 目标 15-20 词，上限 25 词 | "In order to address the concern regarding the lack of clarity in the section, we made revisions." → "We revised the section to improve clarity." |
 | 克制修饰 | 形容词/副词仅在传递新信息时用 | "We greatly appreciate this highly insightful comment" → "We appreciate this comment on [topic]" |
+| 中式英语防治 | 动宾/形名搭配避免直译，中式句型整句重写 | "improve the level" → enhance; "With the development of X, Y..." → "X has transformed Y" |
+| 压缩冗余 | 名词化还原为动词，删除空洞修饰语 | "carry out an investigation" → investigate; "very important" → important（或量化） |
 
 > **例外**：感谢语句允许一个描述性形容词（如 "constructive feedback"），正文论证部分严格执行。
+> **完整的搭配禁忌表和空洞修饰语黑名单见 CLAUDE.md 的"科技写作规范"Rule 5-6。**
 
 ### 前置条件
 
@@ -315,6 +318,60 @@ latexmk -pvc- -pv- supplemental-materials.tex  # 编译补充材料（一次性�
 2. **逻辑清晰** — 句间因果/递进关系明确，用 "First,...Second,..." 而非 "Moreover,...Furthermore,..."
 3. **短句** — 目标 15-20 词/句，上限 25 词
 4. **克制修饰** — 删除不传递新信息的形容词/副词；感谢语句允许一个描述性形容词
+5. **中式英语防治** — 以下模式是中文母语者英文写作中最常见的直译错误，写作时逐句自检（Rule 5 关注**搭配选词**——用哪个词；Rule 6 关注**句法结构**——用不用这个结构。部分搭配同时涉及两条规则，置于 Rule 5）：
+
+   **动宾搭配（最高频错误）**：
+   | ❌ 中式搭配 | ✅ 地道表达 |
+   |------------|-----------|
+   | improve the level | enhance, raise the standard |
+   | put forward a method | propose, introduce, develop |
+   | make a discussion/analysis | discuss, analyze（直接用动词） |
+   | realize the goal | achieve the goal |
+   | promote the development | foster, facilitate, advance, drive |
+   | has important significance | is significant, matters because... |
+   | provide reference for | inform, offer insights for, guide |
+   | play an important role | is critical to, contributes to（每次换词） |
+   | enrich the theory | extend, advance the understanding of |
+   | make contributions to | contribute to |
+   | attract wide attention | has received growing scholarly interest |
+   | do/conduct research on | investigate, examine, explore |
+
+   **形名搭配**：
+   | ❌ 中式搭配 | ✅ 地道表达 |
+   |------------|-----------|
+   | big/large influence | significant influence, substantial impact |
+   | deep research | in-depth research, thorough investigation |
+   | obvious effect | pronounced effect, notable effect |
+   | serious problem | critical issue, pressing challenge |
+
+   **中式句型（整句重写）**：
+   | ❌ 中式句型 | ✅ 重写策略 |
+   |------------|-----------|
+   | With the development of X, Y... | 用具体因果句："X has transformed Y" |
+   | More and more... | An increasing number of / X continues to grow |
+   | The reason is that... | X matters because...（直接说原因） |
+   | About X, this study finds... | This study finds that X...（SVO 结构） |
+   | Not only...but also...（滥用） | X as well as Y / Beyond X, Y also... |
+   | In recent years / Nowadays | 具体时间：Since 2018 / Over the past decade |
+
+6. **压缩冗余** — 名词化和空洞修饰语是中文学术英语的"虚胖"来源，逐句检查并压缩：
+
+   **名词化 → 直接动词**：
+   | ❌ 冗余表达 | ✅ 压缩后 |
+   |------------|---------|
+   | carry out an investigation of | investigate |
+   | conduct a comparison between | compare |
+   | due to the fact that | because |
+   | in the process of | during |
+   | for the purpose of / in order to | to |
+   | it is worth noting that | （删除，直接陈述） |
+   | it can be seen that | （删除，直接陈述） |
+
+   **空洞修饰语黑名单**（直接删除或用证据替换）：
+   - 空洞强调词：very, extremely, highly（非统计）, greatly, particularly（未指定子集）→ 删除或量化
+   - 零信息副词：basically, actually, essentially, obviously, clearly, certainly, indeed → 直接删除
+   - 自我评价词：novel, important, crucial, key, unique, innovative → 删除，让内容说话
+   - 同义堆叠：critical and essential → essential; important and significant → significant
 ```
 
 ---
@@ -566,7 +623,7 @@ Cluster 之间可能存在执行依赖：
 ### 5.11 完成 revision-guide.md（Section 6-9）
 
 填写剩余 Section：
-- **Section 6: Response Letter 风格指南**——参照 CLAUDE.md 中的格式规则和科技写作四条规范（简单主动句、逻辑清晰、短句、克制修饰）
+- **Section 6: Response Letter 风格指南**——参照 CLAUDE.md 中的格式规则和科技写作六条规范（简单主动句式、逻辑清晰、短句、克制修饰、中式英语防治、压缩冗余）
 - **Section 7: 交付物**——列出最终要提交的文件
 - **Section 8: 分工**——明确 Claude 和用户各自负责的任务
 - **Section 9: 期刊特定要求**——从期刊官网获取格式、字数、图片等要求
