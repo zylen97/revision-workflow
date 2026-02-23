@@ -166,6 +166,7 @@ CITATIONS (plain text only — no natbib):
   [ ] Step 3  FILL RESPONSE LETTER
       Paste Part 2 output into response-letter.tex
       Replace \response{[TO BE FILLED]} placeholders
+      ⚠ \lineref{}: write current value or [TBD]; do NOT update old values
 
   [ ] Step 4  UPDATE PROGRESS
       cluster-progress.md:  C__ → ✅

@@ -69,7 +69,7 @@
 - [ ] 所有原稿修改已应用
 - [ ] 所有回复已填入 response-letter.tex
 - [ ] 无 `[TO BE FILLED]` 或 `[TBD]` 占位符残留
-- [ ] 所有 `\lineref{}` 行号已核对（用户终审时统一更新）
+- [ ] `\lineref{}` 行号与当前稿件一致（用户按需自行核对）
 - [ ] 所有 `\manuscriptquote{}` 与当前稿件文本一致
 - [ ] 交叉一致性已验证（特别是锚点修改后）
 - [ ] 每个完成的 Cluster 已 Git commit

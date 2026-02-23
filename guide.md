@@ -17,7 +17,8 @@
 5. [Cluster 分析与 revision-guide.md 填充](#5-cluster-分析与-revision-guidemd-填充)
 6. [填充派生追踪文件](#6-填充派生追踪文件)
 7. [闭环执行](#7-闭环执行)
-8. [附录：跨审稿人引用规则](#附录跨审稿人引用规则)
+8. [终审与提交](#8-终审与提交)
+[附录：跨审稿人引用规则](#附录跨审稿人引用规则)
 
 ---
 
@@ -79,12 +80,13 @@ git add manuscript-original.tex && git commit -m "Freeze baseline for latexdiff"
 3. 你审阅每个 Cluster 的回复，反馈修改意见
 ```
 
-### Phase C：终审与提交（你做）
+### Phase C：终审与提交（你做，详见 Chapter 8）
 
 ```bash
-bash tools/make-diff.sh                        # 生成 tracked-changes PDF
-# 按 reference/quick-reference.md 的 Pre-Submission Checklist 逐项核对
-# 打包提交: response-letter.pdf + manuscript.pdf + manuscript-track-changes.pdf
+# 1. 验证所有 \manuscriptquote{} 与当前稿件一致（Chapter 8.1）
+# 2. 按 reference/quick-reference.md 的 Pre-Submission Checklist 逐项核对（Chapter 8.2）
+bash tools/make-diff.sh                        # 3. 生成 tracked-changes PDF（Chapter 8.3）
+# 4. 打包提交: response-letter.pdf + manuscript.pdf + manuscript-track-changes.pdf（Chapter 8.4）
 ```
 
 ### 分工速查
@@ -135,7 +137,7 @@ Phase C: 终审与提交（本指南 Chapter 8）
   └── 打包提交
 ```
 
-**时间预估**：Phase A 约 2-4 小时（取决于意见数量），Phase B 每个 Cluster 约 1-3 小时。
+**时间预估**：Phase A 约 2-4 小时（取决于意见数量），Phase B 每个 Cluster 约 1-3 小时，Phase C 约 1-2 小时。
 
 ### 四条核心理念
 
@@ -792,7 +794,7 @@ grep -c "TO BE FILLED" response-letter.tex
 
 > 每步的详细操作流程见 `reference/workflow-guide.md`；清单式速查见 `reference/quick-reference.md` 的 "Six-Step Closed Loop"。
 
-> **⚠️ lineref 策略**：`\lineref{}` 的行号在首次填入时写入当前值（或 `[TBD]`），此后**不在每个 Cluster 的闭环中更新**。原因：后续 Cluster 的稿件修改会导致行号偏移，逐次更新是无用功。所有 `\lineref{}` 的最终核对在 Phase C（预提交检查）中由用户统一完成。`manuscript-changelog.md` 的"行号偏移追踪"表可辅助定位偏移量。
+> **⚠️ lineref 策略**：`\lineref{}` 的行号在首次填入时写入当前值（或 `[TBD]`），此后**不在闭环中更新**——后续 Cluster 的稿件修改会导致行号偏移，逐次更新是无用功。用户在提交前按需自行核对即可。
 
 > **用户操作阻断**：如果某个 Cluster 的修改需要用户执行非文字工作（如跑 MATLAB、生成新图表、补充实验数据），处理方式：
 > 1. Claude 先完成该 Cluster 的 Step 1（起草回复），在 Part 3 中标注"**需要用户操作**"的修改项
@@ -810,6 +812,62 @@ AI 生成的回复是起点。每个 Cluster 完成后建议用户审阅：
 **锚点修改后的交叉一致性**：如果用户修改了锚点回复，同 Cluster 的所有卫星回复必须检查一致性。详细的反馈处理流程和终止条件见 `reference/workflow-guide.md`。
 
 ---
+
+## 8. 终审与提交
+
+Phase B 完成所有 Cluster 闭环后，进入终审。本章覆盖提交前必须完成的验证和打包步骤。
+
+### 8.1 manuscriptquote 终审
+
+后续 Cluster 的稿件修改可能已改变早期 Cluster 引用的文本。逐一验证：
+
+1. 提取所有引用：
+   ```bash
+   grep -n "\\\\manuscriptquote" response-letter.tex
+   ```
+2. 对每条 `\manuscriptquote{}`，在当前 `manuscript.tex` 中定位对应文本
+3. 如果文本已变更（措辞调整、段落重组），更新引用使其与当前稿件一致
+4. 验证零残留：确认没有引用了旧版本文本的 `\manuscriptquote{}`
+
+### 8.2 预提交检查清单
+
+按 `reference/quick-reference.md` 的 **Pre-Submission Final Checklist** 逐项核对。核心项：
+
+- **完整性**：所有 Cluster 完成、所有回复已填、无 `[TO BE FILLED]` / `[TBD]` 残留
+- **编译**：manuscript + response-letter + supplemental-materials 均无错误
+- **准确性**：`\manuscriptquote{}` 已在 8.1 验证；`\lineref{}` 行号与当前稿件一致
+
+### 8.3 tracked-changes PDF
+
+```bash
+bash tools/make-diff.sh
+```
+
+审阅 `manuscript-track-changes.pdf`：
+- 确认所有修改均有对应的 response-letter 回复
+- 确认无意外删除或格式损坏
+- 如 latexmkrc 已配置 auto-diff，此步可能已自动完成
+
+### 8.4 打包提交
+
+最终编译顺序：
+```bash
+latexmk manuscript.tex
+latexmk -pvc- -pv- response-letter.tex
+latexmk -pvc- -pv- supplemental-materials.tex  # 如有
+bash tools/make-diff.sh                         # 如未自动生成
+```
+
+提交文件：
+- `response-letter.pdf` — 审稿回复信
+- `manuscript.pdf` — 修改后的稿件
+- `manuscript-track-changes.pdf` — 修改标注版
+- 补充材料（如有）
+
+提交后归档：
+```bash
+git tag submission-r1 -m "R1 revision submitted"
+```
 
 ---
 

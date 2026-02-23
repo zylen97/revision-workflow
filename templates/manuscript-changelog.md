@@ -84,7 +84,7 @@
 
 - [ ] 所有记录的修改已应用到 manuscript.tex
 - [ ] 未修改 manuscript-original.tex
-- [ ] response-letter.tex 中所有 `\lineref{}` 与最终稿件行号匹配（用户终审更新）
+- [ ] response-letter.tex 中 `\lineref{}` 与最终稿件行号匹配（用户按需自行核对）
 - [ ] 所有 `\manuscriptquote{}` 与当前稿件文本一致
 - [ ] 参考文献条目完整（DOI、页码等）
 - [ ] 无 `(ref)` 占位符残留

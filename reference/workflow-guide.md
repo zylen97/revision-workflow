@@ -33,6 +33,7 @@ Paste Part 2 into `\response{[TO BE FILLED]}` locations. Verify:
 - No macro nesting
 - No blank lines in `\response{}`
 - `\manuscriptquote{}` properly separated
+- `\lineref{}` line numbers: write current value or `[TBD]` — do NOT update previously written values
 
 **Key macro definitions** (see `templates/response-letter.tex` for the authoritative versions):
 

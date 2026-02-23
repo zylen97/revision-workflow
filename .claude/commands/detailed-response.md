@@ -149,7 +149,7 @@ X, Y, and Z. Each has an operational definition (Lines 101--115).
 - 如果涉及原稿修改，紧接其后放 `\manuscriptquote{}` 和 `\lineref{}`
 - `\manuscriptquote{}` 中的内容应该是**修改后**的文本（如果原稿已修改）或**当前**文本（如果只是解释）
 - `\lineref{}` 中的行号写入**当前稿件**的行号。如果尚未修改原稿，标注为 `\lineref{Lines [TBD]}`
-  - **注意**：后续 Cluster 的修改可能导致行号偏移，不必回头更新旧的 lineref。所有 `\lineref{}` 在预提交阶段由用户统一核对
+  - **注意**：后续 Cluster 的修改可能导致行号偏移，不必回头更新旧的 lineref。用户按需自行核对
 
 ### 论证策略
 - **不要只说"我们改了"**，要说明**为什么这样改**以及**这个改动如何解决审稿人的问题**
