@@ -289,7 +289,7 @@ latexmk -pvc- -pv- supplemental-materials.tex  # 编译补充材料（一次性�
 对每个 Cluster 执行完整闭环：
 1. 生成回复草稿 → `revision/drafts/Comment_X-Y.md`
 2. 修改 `manuscript.tex`
-3. 将回复填入 `response-letter.tex`，更新 `\lineref{}` 为实际行号
+3. 将回复填入 `response-letter.tex`，替换占位符
 4. 更新 `revision/response-progress.md` 和 `cluster-progress.md`
 5. 编译验证
 6. Git 提交
@@ -785,12 +785,14 @@ grep -c "TO BE FILLED" response-letter.tex
 
 1. **起草回复** — 对每条意见调用 `/detailed-response`（锚点 → 卫星），输出到 `revision/drafts/`
 2. **修改原稿** — 将草稿 Part 3 建议应用到 `manuscript.tex`（如涉及补充材料，同步修改 `supplemental-materials.tex`），整个 Cluster 批量完成
-3. **填写回复信** — 将草稿 Part 2 粘贴到 `response-letter.tex`，替换占位符，更新行号
+3. **填写回复信** — 将草稿 Part 2 粘贴到 `response-letter.tex`，替换占位符
 4. **更新进度** — 更新 `cluster-progress.md`（开始处理时标记 🔶，完成后标记 ✅）、`response-progress.md`、`manuscript-changelog.md`
 5. **编译验证** — `latexmk manuscript.tex` + `latexmk -pvc- -pv- response-letter.tex`（如修改了补充材料：`+ latexmk -pvc- -pv- supplemental-materials.tex`）
 6. **Git 提交** — `git commit -m "Complete cluster C[N]: [theme]"`
 
 > 每步的详细操作流程见 `reference/workflow-guide.md`；清单式速查见 `reference/quick-reference.md` 的 "Six-Step Closed Loop"。
+
+> **⚠️ lineref 策略**：`\lineref{}` 的行号在首次填入时写入当前值（或 `[TBD]`），此后**不在每个 Cluster 的闭环中更新**。原因：后续 Cluster 的稿件修改会导致行号偏移，逐次更新是无用功。所有 `\lineref{}` 的最终核对在 Phase C（预提交检查）中由用户统一完成。`manuscript-changelog.md` 的"行号偏移追踪"表可辅助定位偏移量。
 
 > **用户操作阻断**：如果某个 Cluster 的修改需要用户执行非文字工作（如跑 MATLAB、生成新图表、补充实验数据），处理方式：
 > 1. Claude 先完成该 Cluster 的 Step 1（起草回复），在 Part 3 中标注"**需要用户操作**"的修改项

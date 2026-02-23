@@ -61,15 +61,15 @@
 
 ---
 
-## 完成检查清单
+## 预提交检查清单
 
-标记修改完成前检查：
+所有 Cluster 完成后、提交前检查（非逐 Cluster 检查）：
 
 - [ ] 所有 Cluster 在总览表中标记 ✅
 - [ ] 所有原稿修改已应用
 - [ ] 所有回复已填入 response-letter.tex
 - [ ] 无 `[TO BE FILLED]` 或 `[TBD]` 占位符残留
-- [ ] 所有 `\lineref{}` 行号已更新
+- [ ] 所有 `\lineref{}` 行号已核对（用户终审时统一更新）
 - [ ] 所有 `\manuscriptquote{}` 与当前稿件文本一致
 - [ ] 交叉一致性已验证（特别是锚点修改后）
 - [ ] 每个完成的 Cluster 已 Git commit

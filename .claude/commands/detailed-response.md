@@ -148,8 +148,8 @@ X, Y, and Z. Each has an operational definition (Lines 101--115).
 - 引用具体 section 或 subsection 时，使用 **``Section名称'' section** 格式（section 名称首字母大写），如 `the ``Introduction'' section`、`the ``Literature Review'' section`。不要裸写 section 名：❌ `the Introduction`，✅ `the ``Introduction'' section`
 - 如果涉及原稿修改，紧接其后放 `\manuscriptquote{}` 和 `\lineref{}`
 - `\manuscriptquote{}` 中的内容应该是**修改后**的文本（如果原稿已修改）或**当前**文本（如果只是解释）
-- `\lineref{}` 中的行号应对应**修改后**稿件的行号。如果尚未修改原稿，标注为 `\lineref{Lines [TBD]}` 并在 Part 3 中说明
-  - **时机**：锚点回复中的 `\lineref{Lines [TBD]}` 在闭环 Step 3 更新为真实行号；卫星回复如果锚点已执行完 Step 2（原稿已修改），可直接使用真实行号
+- `\lineref{}` 中的行号写入**当前稿件**的行号。如果尚未修改原稿，标注为 `\lineref{Lines [TBD]}`
+  - **注意**：后续 Cluster 的修改可能导致行号偏移，不必回头更新旧的 lineref。所有 `\lineref{}` 在预提交阶段由用户统一核对
 
 ### 论证策略
 - **不要只说"我们改了"**，要说明**为什么这样改**以及**这个改动如何解决审稿人的问题**
@@ -256,7 +256,7 @@ Part 3 建议的修改文本同样遵循科技写作六条规范（见本文件"
 2. 在对话中展示 **Part 2** 的 LaTeX 回复文本（可直接复制粘贴）
 3. 如果有 **Part 3** 的原稿修改，列出修改摘要
 4. 提醒用户：
-   - 检查 `\lineref{}` 中的行号是否正确
+   - 检查 `\lineref{}` 中的行号是否为当前值或已标注 [TBD]
    - 检查 `\manuscriptquote{}` 中引用的文本是否与最新 manuscript.tex 一致
    - 如果涉及 MATLAB/图表修改（用户负责的部分），明确标注
 5. 告知完整输出已保存到 `revision/drafts/Comment_{X-Y}.md`
