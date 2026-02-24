@@ -153,7 +153,7 @@ Phase C: 终审与提交（本指南 Chapter 8）
 | `response-progress.md` | 逐条回复状态 | 意见 → 回复 → 稿件修改映射 |
 | `manuscript-changelog.md` | 累积稿件修改 | 改了什么、在哪里、为什么 |
 
-**4. 科技写作纪律**：所有生成的英文文本——response letter 和 manuscript 修改——遵循六条规则：
+**4. 科技写作纪律**：所有生成的英文文本——response letter 和 manuscript 修改——遵循七条规则：
 
 | 规则 | 要求 | ❌ → ✅ |
 |------|------|---------|
@@ -163,9 +163,10 @@ Phase C: 终审与提交（本指南 Chapter 8）
 | 克制修饰 | 形容词/副词仅在传递新信息时用 | "We greatly appreciate this highly insightful comment" → "We appreciate this comment on [topic]" |
 | 中式英语防治 | 动宾/形名搭配避免直译，中式句型整句重写 | "improve the level" → enhance; "With the development of X, Y..." → "X has transformed Y" |
 | 压缩冗余 | 名词化还原为动词，删除空洞修饰语 | "carry out an investigation" → investigate; "very important" → important（或量化） |
+| 破折号纪律 | em dash 每页至多 1-2 处；连续段落句型不重复超过 2 次 | `X---such as A, B---Y` → `X, such as A, B, Y` 或括号/冒号/拆句 |
 
 > **例外**：感谢语句允许一个描述性形容词（如 "constructive feedback"），正文论证部分严格执行。
-> **完整的搭配禁忌表和空洞修饰语黑名单见 CLAUDE.md 的"科技写作规范"Rule 5-6。**
+> **完整的搭配禁忌表、空洞修饰语黑名单和破折号替换表见 CLAUDE.md 的"科技写作规范"Rule 5-7。**
 
 ### 前置条件
 
@@ -374,6 +375,17 @@ latexmk -pvc- -pv- supplemental-materials.tex  # 编译补充材料（一次性�
    - 零信息副词：basically, actually, essentially, obviously, clearly, certainly, indeed → 直接删除
    - 自我评价词：novel, important, crucial, key, unique, innovative → 删除，让内容说话
    - 同义堆叠：critical and essential → essential; important and significant → significant
+
+7. **破折号纪律与结构多样性** — em dash (`---`) 是强标点，每页正文至多 1-2 处：
+
+   | ❌ 破折号滥用 | ✅ 替代方案 |
+   |-------------|-----------|
+   | `X---such as A, B, and C---Y` | 逗号或括号 |
+   | `X---including A, B, and C` | 逗号 |
+   | `X---from A to B---Y` | 逗号 + ranging，或拆句 |
+   | `X adopt Y---embedding A, B into Z` | by/through 引导 |
+
+   **结构多样性**：连续段落中同一列举句型不得连续使用超过 2 次。
 ```
 
 ---
@@ -625,7 +637,7 @@ Cluster 之间可能存在执行依赖：
 ### 5.11 完成 revision-guide.md（Section 6-9）
 
 填写剩余 Section：
-- **Section 6: Response Letter 风格指南**——参照 CLAUDE.md 中的格式规则和科技写作六条规范（简单主动句式、逻辑清晰、短句、克制修饰、中式英语防治、压缩冗余）
+- **Section 6: Response Letter 风格指南**——参照 CLAUDE.md 中的格式规则和科技写作七条规范（简单主动句式、逻辑清晰、短句、克制修饰、中式英语防治、压缩冗余、破折号纪律）
 - **Section 7: 交付物**——列出最终要提交的文件
 - **Section 8: 分工**——明确 Claude 和用户各自负责的任务
 - **Section 9: 期刊特定要求**——从期刊官网获取格式、字数、图片等要求

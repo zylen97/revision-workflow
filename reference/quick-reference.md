@@ -51,7 +51,7 @@ CITATIONS (plain text only — no natbib):
   SCIENTIFIC WRITING RULES — ALL GENERATED TEXT
 ──────────────────────────────────────────────────────────────
 
-  SIX RULES:
+  SEVEN RULES:
 
   1. SIMPLE ACTIVE STYLE    One idea per sentence. Active voice.
                             "We revised X" not "X was revised"
@@ -83,6 +83,13 @@ CITATIONS (plain text only — no natbib):
      EMPTY MODIFIERS → DELETE very/extremely/basically/novel/important
      SYNONYM STACKS → PICK ONE "critical and essential" → essential
 
+  EM DASH DISCIPLINE (Rule 7):
+  7. MAX 1-2 EM DASHES/PAGE  Replace ---such as/including/from---
+                             with commas, parentheses, colons,
+                             or sentence splits.
+     STRUCTURAL VARIETY      Don't reuse the same list-insertion
+                             pattern >2 times in consecutive ¶s.
+
   THANKS EXCEPTION:
     ONE descriptive adjective allowed in opening thanks:
       OK   "constructive feedback"  "careful examination"
@@ -97,6 +104,7 @@ CITATIONS (plain text only — no natbib):
     [ ] Verb-noun literally translated? → Use idiomatic English.
     [ ] Any nominalization to compress? → Use direct verb.
     [ ] Chinese sentence pattern?      → Rewrite to SVO.
+    [ ] Em dash for routine listing?   → Use comma/parentheses.
 
   ❌  "We have comprehensively addressed the reviewer's
       insightful concern regarding the significant lack of
@@ -226,6 +234,9 @@ CITATIONS (plain text only — no natbib):
   [ ] Spot-check for Chinglish collocations
       (grep for: improve the level, play.*role, provide reference,
        with the development, more and more, carry out)
+  [ ] Spot-check for em dash overuse — max 1-2 per page
+      (grep for: ---)
+  [ ] No repeated list-insertion structure in consecutive paragraphs
 
   FORMATTING
   [ ] Journal formatting requirements met

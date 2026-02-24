@@ -155,6 +155,7 @@ project-root/
    - 稿件修改文本：同样遵循（方法描述中的学科惯例被动语态可保留）
 5. **中式英语防治** — 动宾搭配避免直译（"improve the level" → enhance），中式句型整句重写（"With the development of..." → 具体因果句）。完整禁忌表见 CLAUDE.md Rule 5
 6. **压缩冗余** — 名词化还原为动词（"carry out an investigation" → investigate），删除空洞修饰语（very/extremely/novel/important → 删除或量化）。完整黑名单见 CLAUDE.md Rule 6
+7. **破折号纪律** — em dash 每页至多 1-2 处，连续段落句型不重复超过 2 次。完整替换表见 CLAUDE.md Rule 7
 
 ### 跨审稿人引用原则
 - **同审稿人内引用**: 可以直接引用（如 R1-4 → R1-3）
