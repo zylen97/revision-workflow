@@ -37,7 +37,7 @@
 
 ```bash
 # 1. 复制工具和模板到项目（Chapter 2.1 的 bash 命令，直接复制执行）
-mkdir -p tools .claude/commands revision/drafts
+mkdir -p tools .claude/commands revision/drafts polish
 cp revision-workflow-guide/tools/* tools/
 cp revision-workflow-guide/.claude/commands/* .claude/commands/
 cp revision-workflow-guide/templates/revision-guide.md revision/
@@ -153,7 +153,7 @@ Phase C: 终审与提交（本指南 Chapter 8）
 | `response-progress.md` | 逐条回复状态 | 意见 → 回复 → 稿件修改映射 |
 | `manuscript-changelog.md` | 累积稿件修改 | 改了什么、在哪里、为什么 |
 
-**4. 科技写作纪律**：所有生成的英文文本——response letter 和 manuscript 修改——遵循七条规则：
+**4. 科技写作纪律**：所有生成的英文文本应达到以下质量标准。主 agent 专注内容质量，语言层面由用户手动触发 `language-polisher`（Mode B）保障：
 
 | 规则 | 要求 | ❌ → ✅ |
 |------|------|---------|
@@ -166,7 +166,7 @@ Phase C: 终审与提交（本指南 Chapter 8）
 | 破折号纪律 | em dash 每页至多 1-2 处；连续段落句型不重复超过 2 次 | `X---such as A, B---Y` → `X, such as A, B, Y` 或括号/冒号/拆句 |
 
 > **例外**：感谢语句允许一个描述性形容词（如 "constructive feedback"），正文论证部分严格执行。
-> **完整的搭配禁忌表、空洞修饰语黑名单和破折号替换表见 CLAUDE.md 的"科技写作规范"Rule 5-7。**
+> **完整规则参见 `~/.claude/agents/language-polisher.md`（Categories A–M）。**
 
 ### 前置条件
 
@@ -200,8 +200,8 @@ cp revision-workflow-guide/.claude/commands/parse-decision-letter.md .claude/com
 cp revision-workflow-guide/.claude/commands/detailed-response.md .claude/commands/
 cp revision-workflow-guide/.claude/commands/general-response.md .claude/commands/
 
-# 3. 创建修改追踪目录，复制空白追踪模板
-mkdir -p revision/drafts
+# 3. 创建修改追踪目录 + 润色输出目录，复制空白追踪模板
+mkdir -p revision/drafts polish
 cp revision-workflow-guide/templates/revision-guide.md revision/
 cp revision-workflow-guide/templates/cluster-progress.md revision/
 cp revision-workflow-guide/templates/response-progress.md revision/
@@ -262,6 +262,7 @@ $success_cmd = 'for f in build/*.pdf; do [ -f "$f" ] && cp "$f" .; done; '
 ├── tools/                      # Diff 工具链（make-diff.sh + latexdiff-preamble.tex）
 ├── revision/                   # 修改追踪（策略+进度+审稿原始意见+drafts）
 │   └── drafts/                 # Agent 工作流输出
+├── polish/                        # Mode B 语言润色输出（顺序编号 001.md, 002.md, ...）
 └── .claude/commands/           # 项目级 skill 定义
 ```
 
@@ -316,76 +317,18 @@ latexmk -pvc- -pv- supplemental-materials.tex  # 编译补充材料（一次性�
 - 两位作者写全名，三位及以上用 et al.
 
 ### 科技写作规范（铁律）
-所有 response letter 和 manuscript 修改文本：
-1. **简单主动句式** — 一句一意，"We revised X" 而非 "X was revised"
-2. **逻辑清晰** — 句间因果/递进关系明确，用 "First,...Second,..." 而非 "Moreover,...Furthermore,..."
-3. **短句** — 目标 15-20 词/句，上限 25 词
-4. **克制修饰** — 删除不传递新信息的形容词/副词；感谢语句允许一个描述性形容词
-5. **中式英语防治** — 以下模式是中文母语者英文写作中最常见的直译错误，写作时逐句自检（Rule 5 关注**搭配选词**——用哪个词；Rule 6 关注**句法结构**——用不用这个结构。部分搭配同时涉及两条规则，置于 Rule 5）：
 
-   **动宾搭配（最高频错误）**：
-   | ❌ 中式搭配 | ✅ 地道表达 |
-   |------------|-----------|
-   | improve the level | enhance, raise the standard |
-   | put forward a method | propose, introduce, develop |
-   | make a discussion/analysis | discuss, analyze（直接用动词） |
-   | realize the goal | achieve the goal |
-   | promote the development | foster, facilitate, advance, drive |
-   | has important significance | is significant, matters because... |
-   | provide reference for | inform, offer insights for, guide |
-   | play an important role | is critical to, contributes to（每次换词） |
-   | enrich the theory | extend, advance the understanding of |
-   | make contributions to | contribute to |
-   | attract wide attention | has received growing scholarly interest |
-   | do/conduct research on | investigate, examine, explore |
+**权威规则源**: `~/.claude/agents/language-polisher.md`（Categories A–M，含 Chinglish 消除、时态、修饰语、破折号等 13 类规则）。
 
-   **形名搭配**：
-   | ❌ 中式搭配 | ✅ 地道表达 |
-   |------------|-----------|
-   | big/large influence | significant influence, substantial impact |
-   | deep research | in-depth research, thorough investigation |
-   | obvious effect | pronounced effect, notable effect |
-   | serious problem | critical issue, pressing challenge |
+主 agent 撰写英文文本（response letter 和 manuscript 修改）时专注内容质量，**不需要**执行逐句语言自检。
+用户需要语言润色时会手动指示调用 `language-polisher` agent（Mode B），届时按提示执行即可。
 
-   **中式句型（整句重写）**：
-   | ❌ 中式句型 | ✅ 重写策略 |
-   |------------|-----------|
-   | With the development of X, Y... | 用具体因果句："X has transformed Y" |
-   | More and more... | An increasing number of / X continues to grow |
-   | The reason is that... | X matters because...（直接说原因） |
-   | About X, this study finds... | This study finds that X...（SVO 结构） |
-   | Not only...but also...（滥用） | X as well as Y / Beyond X, Y also... |
-   | In recent years / Nowadays | 具体时间：Since 2018 / Over the past decade |
-
-6. **压缩冗余** — 名词化和空洞修饰语是中文学术英语的"虚胖"来源，逐句检查并压缩：
-
-   **名词化 → 直接动词**：
-   | ❌ 冗余表达 | ✅ 压缩后 |
-   |------------|---------|
-   | carry out an investigation of | investigate |
-   | conduct a comparison between | compare |
-   | due to the fact that | because |
-   | in the process of | during |
-   | for the purpose of / in order to | to |
-   | it is worth noting that | （删除，直接陈述） |
-   | it can be seen that | （删除，直接陈述） |
-
-   **空洞修饰语黑名单**（直接删除或用证据替换）：
-   - 空洞强调词：very, extremely, highly（非统计）, greatly, particularly（未指定子集）→ 删除或量化
-   - 零信息副词：basically, actually, essentially, obviously, clearly, certainly, indeed → 直接删除
-   - 自我评价词：novel, important, crucial, key, unique, innovative → 删除，让内容说话
-   - 同义堆叠：critical and essential → essential; important and significant → significant
-
-7. **破折号纪律与结构多样性** — em dash (`---`) 是强标点，每页正文至多 1-2 处：
-
-   | ❌ 破折号滥用 | ✅ 替代方案 |
-   |-------------|-----------|
-   | `X---such as A, B, and C---Y` | 逗号或括号 |
-   | `X---including A, B, and C` | 逗号 |
-   | `X---from A to B---Y` | 逗号 + ranging，或拆句 |
-   | `X adopt Y---embedding A, B into Z` | by/through 引导 |
-
-   **结构多样性**：连续段落中同一列举句型不得连续使用超过 2 次。
+#### Mode B 输出保存
+调用 language-polisher（Mode B）后，主 agent **必须**将完整输出保存到文件：
+- **目录**: `polish/`（项目根目录下，不存在则创建）
+- **文件名**: 三位顺序编号，如 `001.md`、`002.md`（扫描已有文件取最大编号 +1）
+- **内容**: polisher 返回的完整输出（润色后文本 + Change Summary），原样保存，不做额外加工
+- **保存后**：告知用户文件路径，方便查阅和合并
 ```
 
 ---

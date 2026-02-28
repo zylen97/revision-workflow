@@ -76,9 +76,11 @@ description: "为审稿回复信生成逐条详细回复（含分析、LaTeX回�
 2. **逻辑清晰** — 句间用 "First,...Second,..." 或因果连接词，不堆叠 "Moreover,...Furthermore,...Additionally,..."
 3. **短句** — 目标 15-20 词，超过 25 词必须拆分
 4. **克制修饰** — 删除 "significantly"、"comprehensively" 等不传递新信息的副词；形容词同理
-5. **中式英语防治** — 检查每句的动宾搭配是否为直译（"improve the level" → enhance, "provide reference" → inform, "play an important role" → is critical to）；中式句型整句重写（"With the development of..." → 具体因果句）。**完整搭配禁忌表见 CLAUDE.md Rule 5。**
-6. **压缩冗余** — 删除名词化冗余（"carry out an investigation" → investigate）和空洞修饰语（very/extremely/basically/novel/important → 删除或量化）。**完整黑名单见 CLAUDE.md Rule 6。**
-7. **破折号纪律** — em dash (`---`) 每页至多 1-2 处；用逗号/括号/冒号/拆句替换 `---such as/including/from---` 模式。连续段落同一句型不超过 2 次。**见 CLAUDE.md Rule 7。**
+5. **中式英语防治** — 检查每句的动宾搭配是否为直译（"improve the level" → enhance, "provide reference" → inform, "play an important role" → is critical to）；中式句型整句重写（"With the development of..." → 具体因果句）
+6. **压缩冗余** — 删除名词化冗余（"carry out an investigation" → investigate）和空洞修饰语（very/extremely/basically/novel/important → 删除或量化）
+7. **破折号纪律** — em dash (`---`) 每页至多 1-2 处；用逗号/括号/冒号/拆句替换 `---such as/including/from---` 模式。连续段落同一句型不超过 2 次
+
+> 完整规则参见 `~/.claude/agents/language-polisher.md`（Categories A–M）。
 
 ❌ BAD:
 ```

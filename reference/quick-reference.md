@@ -63,7 +63,7 @@ CITATIONS (plain text only — no natbib):
   4. MINIMAL MODIFIERS      Only adjectives/adverbs that carry
                             new information. No stacking.
 
-  CHINGLISH PREVENTION (Rule 5):
+  CHINGLISH PREVENTION:
   5. NO LITERAL TRANSLATION Check every verb-noun & adj-noun pair:
      "improve the level"     → enhance
      "provide reference for" → inform, offer insights for
@@ -76,14 +76,14 @@ CITATIONS (plain text only — no natbib):
        "With the development of X..." → "X has transformed Y"
        "More and more..."            → "An increasing number of"
 
-  COMPRESS REDUNDANCY (Rule 6):
+  COMPRESS REDUNDANCY:
   6. NOMINALIZATION → VERB   "carry out an investigation" → investigate
                              "due to the fact that" → because
                              "it is worth noting that" → (delete)
      EMPTY MODIFIERS → DELETE very/extremely/basically/novel/important
      SYNONYM STACKS → PICK ONE "critical and essential" → essential
 
-  EM DASH DISCIPLINE (Rule 7):
+  EM DASH DISCIPLINE:
   7. MAX 1-2 EM DASHES/PAGE  Replace ---such as/including/from---
                              with commas, parentheses, colons,
                              or sentence splits.
@@ -95,7 +95,7 @@ CITATIONS (plain text only — no natbib):
       OK   "constructive feedback"  "careful examination"
       BAD  "highly insightful and extremely valuable comment"
 
-  SELF-CHECK PER SENTENCE:
+  QUALITY REVIEW CHECKLIST (for human review / Mode B):
     [ ] Can I split this?              → Split it.
     [ ] Is the subject doing the verb? → Rewrite if not.
     [ ] Over 25 words?                 → Shorten.

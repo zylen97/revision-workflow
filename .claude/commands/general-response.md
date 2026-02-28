@@ -52,8 +52,8 @@ description: "为审稿回复信生成概括性回复（Editor/AE/Reviewer的总
 1. **简单主动句式**：一句一意，主动语态，目标 15-20 词/句
 2. **逻辑清晰**：句间用 "First,...Second,..." 而非 "Moreover,...Furthermore,..."
 3. **克制修饰**：删除不传递新信息的副词/形容词；感谢语句允许一个描述性形容词，正文部分严格执行
-4. **中式英语防治 + 压缩冗余**：检查动宾搭配避免直译（"provide reference" → inform, "play a role" → is critical to），删除名词化冗余和空洞修饰语（very/extremely → 删除）。**完整禁忌表见 CLAUDE.md Rule 5-6。**
-5. **破折号纪律**：em dash (`---`) 每页至多 1-2 处；用逗号/括号替换 `---such as/including---` 列举模式。**见 CLAUDE.md Rule 7。**
+4. **中式英语防治 + 压缩冗余**：检查动宾搭配避免直译（"provide reference" → inform, "play a role" → is critical to），删除名词化冗余和空洞修饰语（very/extremely → 删除）。完整规则参见 `~/.claude/agents/language-polisher.md`。
+5. **破折号纪律**：em dash (`---`) 每页至多 1-2 处；用逗号/括号替换 `---such as/including---` 列举模式。
 
 ### 感谢措辞库（每次选取或改编，不得重复）
 参考以下变体，也可以创造新的（每条限一个描述性形容词）：

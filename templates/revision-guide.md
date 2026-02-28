@@ -33,6 +33,7 @@ project-root/
 ├── tools/
 │   ├── make-diff.sh           # Diff 脚本
 │   └── latexdiff-preamble.tex # Diff 样式
+├── polish/                    # Mode B 语言润色输出（顺序编号 001.md, 002.md, ...）
 ├── revision/
 │   ├── comment-letter.md        # 原始决定信（用户粘贴）
 │   ├── comment-letter-clean.md  # 规范化意见列表（/parse-decision-letter 生成）
@@ -145,17 +146,11 @@ project-root/
 - `\lineref{}` 放在 `\manuscriptquote{}` 的内容末尾
 - 引用格式: 纯文本 `(Author et al., Year)` — 不用 natbib
 
-### 科技写作规范（所有生成文本必须遵循）
-1. **简单主动句式** — 一句一意，"We revised X" 而非 "X was revised by the authors"
-2. **逻辑清晰** — 句间因果/递进关系用 "First,...Second,..." 结构，不堆叠连接词
-3. **短句** — 目标 15-20 词/句，上限 25 词/句
-4. **克制修饰** — 形容词/副词仅在传递新信息时使用
-   - 感谢语句：允许一个描述性形容词
-   - 正文论证：用具体内容替代空洞修饰（"We revised X" 而非 "We significantly improved X"）
-   - 稿件修改文本：同样遵循（方法描述中的学科惯例被动语态可保留）
-5. **中式英语防治** — 动宾搭配避免直译（"improve the level" → enhance），中式句型整句重写（"With the development of..." → 具体因果句）。完整禁忌表见 CLAUDE.md Rule 5
-6. **压缩冗余** — 名词化还原为动词（"carry out an investigation" → investigate），删除空洞修饰语（very/extremely/novel/important → 删除或量化）。完整黑名单见 CLAUDE.md Rule 6
-7. **破折号纪律** — em dash 每页至多 1-2 处，连续段落句型不重复超过 2 次。完整替换表见 CLAUDE.md Rule 7
+### 科技写作规范
+
+**权威规则源**: `~/.claude/agents/language-polisher.md`（Categories A–M）。
+主 agent 专注内容质量，不执行语言自检。用户需要语言润色时手动调用 language-polisher（Mode B）。
+Mode B 输出保存到 `polish/` 目录。
 
 ### 跨审稿人引用原则
 - **同审稿人内引用**: 可以直接引用（如 R1-4 → R1-3）
